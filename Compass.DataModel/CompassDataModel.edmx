@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CompassModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CMP_ActivityMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ActivityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CMP_CategoryMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CMP_IssueActivityDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="int" Nullable="false" />
+          <Property Name="IssueId" Type="int" Nullable="false" />
+          <Property Name="DateOfActivity" Type="date" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CMP_IssueAssignmentDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IssueId" Type="int" Nullable="false" />
+          <Property Name="AssignedBy" Type="int" Nullable="false" />
+          <Property Name="AssignedTo" Type="int" Nullable="false" />
+          <Property Name="AssignedOn" Type="datetime" Nullable="false" />
+          <Property Name="IsCurrent" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CMP_IssueDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IssueType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExternalId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CMP_IssueStatusMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IssueStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CMP_RoleMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CMP_UserDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails">
+          <End Role="CMP_ActivityMaster" Type="Self.CMP_ActivityMaster" Multiplicity="1" />
+          <End Role="CMP_IssueActivityDetails" Type="Self.CMP_IssueActivityDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_ActivityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueActivityDetails">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueActivityDetails_CMP_UserDetails">
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="1" />
+          <End Role="CMP_IssueActivityDetails" Type="Self.CMP_IssueActivityDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UserDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueActivityDetails">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueAssignmentDetails_CMP_IssueDetails">
+          <End Role="CMP_IssueDetails" Type="Self.CMP_IssueDetails" Multiplicity="1" />
+          <End Role="CMP_IssueAssignmentDetails" Type="Self.CMP_IssueAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_IssueDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueAssignmentDetails">
+              <PropertyRef Name="IssueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails">
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="1" />
+          <End Role="CMP_IssueAssignmentDetails" Type="Self.CMP_IssueAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UserDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueAssignmentDetails">
+              <PropertyRef Name="AssignedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails1">
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="1" />
+          <End Role="CMP_IssueAssignmentDetails" Type="Self.CMP_IssueAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UserDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueAssignmentDetails">
+              <PropertyRef Name="AssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueDetails_CMP_CategoryMaster">
+          <End Role="CMP_CategoryMaster" Type="Self.CMP_CategoryMaster" Multiplicity="1" />
+          <End Role="CMP_IssueDetails" Type="Self.CMP_IssueDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_CategoryMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueDetails">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueDetails_CMP_IssueStatusMaster">
+          <End Role="CMP_IssueStatusMaster" Type="Self.CMP_IssueStatusMaster" Multiplicity="1" />
+          <End Role="CMP_IssueDetails" Type="Self.CMP_IssueDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_IssueStatusMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueDetails">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_UserDetails_CMP_RoleMaster">
+          <End Role="CMP_RoleMaster" Type="Self.CMP_RoleMaster" Multiplicity="1" />
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_RoleMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_UserDetails">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CompassModelStoreContainer">
+          <EntitySet Name="CMP_ActivityMaster" EntityType="Self.CMP_ActivityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_CategoryMaster" EntityType="Self.CMP_CategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_IssueActivityDetails" EntityType="Self.CMP_IssueActivityDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_IssueAssignmentDetails" EntityType="Self.CMP_IssueAssignmentDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_IssueDetails" EntityType="Self.CMP_IssueDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_IssueStatusMaster" EntityType="Self.CMP_IssueStatusMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_RoleMaster" EntityType="Self.CMP_RoleMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CMP_UserDetails" EntityType="Self.CMP_UserDetails" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails" Association="Self.FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails">
+            <End Role="CMP_ActivityMaster" EntitySet="CMP_ActivityMaster" />
+            <End Role="CMP_IssueActivityDetails" EntitySet="CMP_IssueActivityDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueActivityDetails_CMP_UserDetails" Association="Self.FK_CMP_IssueActivityDetails_CMP_UserDetails">
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+            <End Role="CMP_IssueActivityDetails" EntitySet="CMP_IssueActivityDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueAssignmentDetails_CMP_IssueDetails" Association="Self.FK_CMP_IssueAssignmentDetails_CMP_IssueDetails">
+            <End Role="CMP_IssueDetails" EntitySet="CMP_IssueDetails" />
+            <End Role="CMP_IssueAssignmentDetails" EntitySet="CMP_IssueAssignmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails" Association="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails">
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+            <End Role="CMP_IssueAssignmentDetails" EntitySet="CMP_IssueAssignmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails1" Association="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails1">
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+            <End Role="CMP_IssueAssignmentDetails" EntitySet="CMP_IssueAssignmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueDetails_CMP_CategoryMaster" Association="Self.FK_CMP_IssueDetails_CMP_CategoryMaster">
+            <End Role="CMP_CategoryMaster" EntitySet="CMP_CategoryMaster" />
+            <End Role="CMP_IssueDetails" EntitySet="CMP_IssueDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueDetails_CMP_IssueStatusMaster" Association="Self.FK_CMP_IssueDetails_CMP_IssueStatusMaster">
+            <End Role="CMP_IssueStatusMaster" EntitySet="CMP_IssueStatusMaster" />
+            <End Role="CMP_IssueDetails" EntitySet="CMP_IssueDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_UserDetails_CMP_RoleMaster" Association="Self.FK_CMP_UserDetails_CMP_RoleMaster">
+            <End Role="CMP_RoleMaster" EntitySet="CMP_RoleMaster" />
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CompassModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CMP_ActivityMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ActivityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_IssueActivityDetails" Relationship="Self.FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails" FromRole="CMP_ActivityMaster" ToRole="CMP_IssueActivityDetails" />
+        </EntityType>
+        <EntityType Name="CMP_CategoryMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_IssueDetails" Relationship="Self.FK_CMP_IssueDetails_CMP_CategoryMaster" FromRole="CMP_CategoryMaster" ToRole="CMP_IssueDetails" />
+        </EntityType>
+        <EntityType Name="CMP_IssueActivityDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ActivityTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IssueId" Type="Int32" Nullable="false" />
+          <Property Name="DateOfActivity" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_ActivityMaster" Relationship="Self.FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails" FromRole="CMP_IssueActivityDetails" ToRole="CMP_ActivityMaster" />
+          <NavigationProperty Name="CMP_UserDetails" Relationship="Self.FK_CMP_IssueActivityDetails_CMP_UserDetails" FromRole="CMP_IssueActivityDetails" ToRole="CMP_UserDetails" />
+        </EntityType>
+        <EntityType Name="CMP_IssueAssignmentDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IssueId" Type="Int32" Nullable="false" />
+          <Property Name="AssignedBy" Type="Int32" Nullable="false" />
+          <Property Name="AssignedTo" Type="Int32" Nullable="false" />
+          <Property Name="AssignedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_IssueDetails" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_IssueDetails" FromRole="CMP_IssueAssignmentDetails" ToRole="CMP_IssueDetails" />
+          <NavigationProperty Name="CMP_UserDetails" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails" FromRole="CMP_IssueAssignmentDetails" ToRole="CMP_UserDetails" />
+          <NavigationProperty Name="CMP_UserDetails1" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails1" FromRole="CMP_IssueAssignmentDetails" ToRole="CMP_UserDetails" />
+        </EntityType>
+        <EntityType Name="CMP_IssueDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IssueType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExternalId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Summary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_CategoryMaster" Relationship="Self.FK_CMP_IssueDetails_CMP_CategoryMaster" FromRole="CMP_IssueDetails" ToRole="CMP_CategoryMaster" />
+          <NavigationProperty Name="CMP_IssueAssignmentDetails" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_IssueDetails" FromRole="CMP_IssueDetails" ToRole="CMP_IssueAssignmentDetails" />
+          <NavigationProperty Name="CMP_IssueStatusMaster" Relationship="Self.FK_CMP_IssueDetails_CMP_IssueStatusMaster" FromRole="CMP_IssueDetails" ToRole="CMP_IssueStatusMaster" />
+        </EntityType>
+        <EntityType Name="CMP_IssueStatusMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IssueStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_IssueDetails" Relationship="Self.FK_CMP_IssueDetails_CMP_IssueStatusMaster" FromRole="CMP_IssueStatusMaster" ToRole="CMP_IssueDetails" />
+        </EntityType>
+        <EntityType Name="CMP_RoleMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_UserDetails" Relationship="Self.FK_CMP_UserDetails_CMP_RoleMaster" FromRole="CMP_RoleMaster" ToRole="CMP_UserDetails" />
+        </EntityType>
+        <EntityType Name="CMP_UserDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CMP_IssueActivityDetails" Relationship="Self.FK_CMP_IssueActivityDetails_CMP_UserDetails" FromRole="CMP_UserDetails" ToRole="CMP_IssueActivityDetails" />
+          <NavigationProperty Name="CMP_IssueAssignmentDetails" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails" FromRole="CMP_UserDetails" ToRole="CMP_IssueAssignmentDetails" />
+          <NavigationProperty Name="CMP_IssueAssignmentDetails1" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails1" FromRole="CMP_UserDetails" ToRole="CMP_IssueAssignmentDetails" />
+          <NavigationProperty Name="CMP_RoleMaster" Relationship="Self.FK_CMP_UserDetails_CMP_RoleMaster" FromRole="CMP_UserDetails" ToRole="CMP_RoleMaster" />
+        </EntityType>
+        <Association Name="FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails">
+          <End Role="CMP_ActivityMaster" Type="Self.CMP_ActivityMaster" Multiplicity="1" />
+          <End Role="CMP_IssueActivityDetails" Type="Self.CMP_IssueActivityDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_ActivityMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueActivityDetails">
+              <PropertyRef Name="ActivityTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueDetails_CMP_CategoryMaster">
+          <End Role="CMP_CategoryMaster" Type="Self.CMP_CategoryMaster" Multiplicity="1" />
+          <End Role="CMP_IssueDetails" Type="Self.CMP_IssueDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_CategoryMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueDetails">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueActivityDetails_CMP_UserDetails">
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="1" />
+          <End Role="CMP_IssueActivityDetails" Type="Self.CMP_IssueActivityDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UserDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueActivityDetails">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueAssignmentDetails_CMP_IssueDetails">
+          <End Role="CMP_IssueDetails" Type="Self.CMP_IssueDetails" Multiplicity="1" />
+          <End Role="CMP_IssueAssignmentDetails" Type="Self.CMP_IssueAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_IssueDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueAssignmentDetails">
+              <PropertyRef Name="IssueId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails">
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="1" />
+          <End Role="CMP_IssueAssignmentDetails" Type="Self.CMP_IssueAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UserDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueAssignmentDetails">
+              <PropertyRef Name="AssignedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails1">
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="1" />
+          <End Role="CMP_IssueAssignmentDetails" Type="Self.CMP_IssueAssignmentDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_UserDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueAssignmentDetails">
+              <PropertyRef Name="AssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_IssueDetails_CMP_IssueStatusMaster">
+          <End Role="CMP_IssueStatusMaster" Type="Self.CMP_IssueStatusMaster" Multiplicity="1" />
+          <End Role="CMP_IssueDetails" Type="Self.CMP_IssueDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_IssueStatusMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_IssueDetails">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CMP_UserDetails_CMP_RoleMaster">
+          <End Role="CMP_RoleMaster" Type="Self.CMP_RoleMaster" Multiplicity="1" />
+          <End Role="CMP_UserDetails" Type="Self.CMP_UserDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMP_RoleMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CMP_UserDetails">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CompassEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CMP_ActivityMaster" EntityType="Self.CMP_ActivityMaster" />
+          <EntitySet Name="CMP_CategoryMaster" EntityType="Self.CMP_CategoryMaster" />
+          <EntitySet Name="CMP_IssueActivityDetails" EntityType="Self.CMP_IssueActivityDetails" />
+          <EntitySet Name="CMP_IssueAssignmentDetails" EntityType="Self.CMP_IssueAssignmentDetails" />
+          <EntitySet Name="CMP_IssueDetails" EntityType="Self.CMP_IssueDetails" />
+          <EntitySet Name="CMP_IssueStatusMaster" EntityType="Self.CMP_IssueStatusMaster" />
+          <EntitySet Name="CMP_RoleMaster" EntityType="Self.CMP_RoleMaster" />
+          <EntitySet Name="CMP_UserDetails" EntityType="Self.CMP_UserDetails" />
+          <AssociationSet Name="FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails" Association="Self.FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails">
+            <End Role="CMP_ActivityMaster" EntitySet="CMP_ActivityMaster" />
+            <End Role="CMP_IssueActivityDetails" EntitySet="CMP_IssueActivityDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueDetails_CMP_CategoryMaster" Association="Self.FK_CMP_IssueDetails_CMP_CategoryMaster">
+            <End Role="CMP_CategoryMaster" EntitySet="CMP_CategoryMaster" />
+            <End Role="CMP_IssueDetails" EntitySet="CMP_IssueDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueActivityDetails_CMP_UserDetails" Association="Self.FK_CMP_IssueActivityDetails_CMP_UserDetails">
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+            <End Role="CMP_IssueActivityDetails" EntitySet="CMP_IssueActivityDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueAssignmentDetails_CMP_IssueDetails" Association="Self.FK_CMP_IssueAssignmentDetails_CMP_IssueDetails">
+            <End Role="CMP_IssueDetails" EntitySet="CMP_IssueDetails" />
+            <End Role="CMP_IssueAssignmentDetails" EntitySet="CMP_IssueAssignmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails" Association="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails">
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+            <End Role="CMP_IssueAssignmentDetails" EntitySet="CMP_IssueAssignmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueAssignmentDetails_CMP_UserDetails1" Association="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails1">
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+            <End Role="CMP_IssueAssignmentDetails" EntitySet="CMP_IssueAssignmentDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_IssueDetails_CMP_IssueStatusMaster" Association="Self.FK_CMP_IssueDetails_CMP_IssueStatusMaster">
+            <End Role="CMP_IssueStatusMaster" EntitySet="CMP_IssueStatusMaster" />
+            <End Role="CMP_IssueDetails" EntitySet="CMP_IssueDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CMP_UserDetails_CMP_RoleMaster" Association="Self.FK_CMP_UserDetails_CMP_RoleMaster">
+            <End Role="CMP_RoleMaster" EntitySet="CMP_RoleMaster" />
+            <End Role="CMP_UserDetails" EntitySet="CMP_UserDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CompassModelStoreContainer" CdmEntityContainer="CompassEntities">
+          <EntitySetMapping Name="CMP_ActivityMaster">
+            <EntityTypeMapping TypeName="CompassModel.CMP_ActivityMaster">
+              <MappingFragment StoreEntitySet="CMP_ActivityMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_CategoryMaster">
+            <EntityTypeMapping TypeName="CompassModel.CMP_CategoryMaster">
+              <MappingFragment StoreEntitySet="CMP_CategoryMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_IssueActivityDetails">
+            <EntityTypeMapping TypeName="CompassModel.CMP_IssueActivityDetails">
+              <MappingFragment StoreEntitySet="CMP_IssueActivityDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ActivityTypeId" ColumnName="ActivityTypeId" />
+                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+                <ScalarProperty Name="DateOfActivity" ColumnName="DateOfActivity" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_IssueAssignmentDetails">
+            <EntityTypeMapping TypeName="CompassModel.CMP_IssueAssignmentDetails">
+              <MappingFragment StoreEntitySet="CMP_IssueAssignmentDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IssueId" ColumnName="IssueId" />
+                <ScalarProperty Name="AssignedBy" ColumnName="AssignedBy" />
+                <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+                <ScalarProperty Name="AssignedOn" ColumnName="AssignedOn" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_IssueDetails">
+            <EntityTypeMapping TypeName="CompassModel.CMP_IssueDetails">
+              <MappingFragment StoreEntitySet="CMP_IssueDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IssueType" ColumnName="IssueType" />
+                <ScalarProperty Name="ExternalId" ColumnName="ExternalId" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_IssueStatusMaster">
+            <EntityTypeMapping TypeName="CompassModel.CMP_IssueStatusMaster">
+              <MappingFragment StoreEntitySet="CMP_IssueStatusMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IssueStatus" ColumnName="IssueStatus" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_RoleMaster">
+            <EntityTypeMapping TypeName="CompassModel.CMP_RoleMaster">
+              <MappingFragment StoreEntitySet="CMP_RoleMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CMP_UserDetails">
+            <EntityTypeMapping TypeName="CompassModel.CMP_UserDetails">
+              <MappingFragment StoreEntitySet="CMP_UserDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
