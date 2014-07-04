@@ -4,22 +4,12 @@
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class UserDetailDTO
+    public class CategoryMaster
     {
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public string Email { get; set; }
-        [DataMember]
-        public string Password { get; set; }
-        [DataMember]
-        public string MobileNumber { get; set; }
-        [DataMember]
-        public bool IsActive { get; set; }
-        [DataMember]
-        public bool IsLocked { get; set; }
-        [DataMember]
-        public int RoleId { get; set; }
+        public string CategoryName { get; set; }
         [DataMember]
         public string CreatedBy { get; set; }
         [DataMember]

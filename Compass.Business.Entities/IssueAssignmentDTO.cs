@@ -4,22 +4,20 @@
     using System.Runtime.Serialization;
 
     [DataContract]
-    public class UserDetailDTO
+    class IssueAssignmentDTO
     {
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public string Email { get; set; }
+        public int IssueId { get; set; }
         [DataMember]
-        public string Password { get; set; }
+        public int AssignedBy { get; set; }
         [DataMember]
-        public string MobileNumber { get; set; }
+        public int AssignedTo { get; set; }
         [DataMember]
-        public bool IsActive { get; set; }
+        public System.DateTime AssignedOn { get; set; }
         [DataMember]
-        public bool IsLocked { get; set; }
-        [DataMember]
-        public int RoleId { get; set; }
+        public bool IsCurrent { get; set; }
         [DataMember]
         public string CreatedBy { get; set; }
         [DataMember]
