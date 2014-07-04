@@ -6,11 +6,28 @@ using System.Threading.Tasks;
 
 namespace Compass.Business.Components
 {
+    using Compass.Business.Entities;
+    using Compass.DataModel;
+    using System.Data.Entity;
     public class UserManager
     {
-        public int CreateNewUser()
+        public int CreateNewUser(UserDetailDTO newUser)
         {
-            throw new NotImplementedException();
+            using (var compassContext = new CompassEntities())
+            {
+                var dbUser = new CMP_UserDetails();
+                dbUser.CreatedBy = "bkpabi@gmail.com";
+                dbUser.CreatedOn = DateTime.Now;
+                dbUser.Email = "bkpabi@gmail.com";
+                dbUser.IsActive = true;
+                dbUser.IsLocked = false;
+                dbUser.MobileNumber = "9538927046";
+                dbUser.Password = "pAbitra";
+                dbUser.RoleId = 1;
+                compassContext.CMP_UserDetails.Add(dbUser);
+                compassContext.SaveChanges();
+                return 1;
+            }
         }
     }
 }
