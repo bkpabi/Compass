@@ -100,6 +100,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="MobileNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsLocked" Type="bit" Nullable="false" />
@@ -370,6 +372,8 @@
           <NavigationProperty Name="CMP_IssueAssignmentDetails" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails" FromRole="CMP_UserDetails" ToRole="CMP_IssueAssignmentDetails" />
           <NavigationProperty Name="CMP_IssueAssignmentDetails1" Relationship="Self.FK_CMP_IssueAssignmentDetails_CMP_UserDetails1" FromRole="CMP_UserDetails" ToRole="CMP_IssueAssignmentDetails" />
           <NavigationProperty Name="CMP_RoleMaster" Relationship="Self.FK_CMP_UserDetails_CMP_RoleMaster" FromRole="CMP_UserDetails" ToRole="CMP_RoleMaster" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails">
           <End Role="CMP_ActivityMaster" Type="Self.CMP_ActivityMaster" Multiplicity="1" />
@@ -613,6 +617,8 @@
           <EntitySetMapping Name="CMP_UserDetails">
             <EntityTypeMapping TypeName="CompassModel.CMP_UserDetails">
               <MappingFragment StoreEntitySet="CMP_UserDetails">
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
