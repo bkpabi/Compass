@@ -17,6 +17,8 @@
         [DataMember]
         public int UserId { get; set; }
         [DataMember]
+        public string UserName { get; set; }
+        [DataMember]
         public string CreatedBy { get; set; }
         [DataMember]
         public System.DateTime CreatedOn { get; set; }

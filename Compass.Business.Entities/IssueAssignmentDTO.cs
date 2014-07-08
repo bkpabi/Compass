@@ -4,7 +4,7 @@
     using System.Runtime.Serialization;
 
     [DataContract]
-    class IssueAssignmentDTO
+    public class IssueAssignmentDTO
     {
         [DataMember]
         public int Id { get; set; }
@@ -13,7 +13,11 @@
         [DataMember]
         public int AssignedBy { get; set; }
         [DataMember]
+        public string AssignedByDisplay { get; set; }
+        [DataMember]
         public int AssignedTo { get; set; }
+        [DataMember]
+        public string AssignedToDisplay { get; set; }
         [DataMember]
         public System.DateTime AssignedOn { get; set; }
         [DataMember]
