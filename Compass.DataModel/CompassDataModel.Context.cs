@@ -31,7 +31,10 @@ namespace Compass.DataModel
         public virtual DbSet<CMP_IssueAssignmentDetails> CMP_IssueAssignmentDetails { get; set; }
         public virtual DbSet<CMP_IssueDetails> CMP_IssueDetails { get; set; }
         public virtual DbSet<CMP_IssueStatusMaster> CMP_IssueStatusMaster { get; set; }
+        public virtual DbSet<CMP_ProjectMaster> CMP_ProjectMaster { get; set; }
         public virtual DbSet<CMP_RoleMaster> CMP_RoleMaster { get; set; }
+        public virtual DbSet<CMP_TenantMaster> CMP_TenantMaster { get; set; }
         public virtual DbSet<CMP_UserDetails> CMP_UserDetails { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

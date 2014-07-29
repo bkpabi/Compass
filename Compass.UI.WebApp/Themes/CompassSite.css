@@ -1,0 +1,131 @@
+﻿body {
+    display: block !important;
+    font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;
+    color: #000;
+    direction: ltr;
+    font-size: 88%;
+}
+
+.button
+{
+    color:#FFF; font-weight:400; font-stretch:expanded; background-color:#1E82CC; margin-top:20px; height:30px; width:78px;border:1px solid #fff;
+    margin-left:5px;
+}
+
+.select
+{
+    height:23px;
+    width:180px;
+    border:1px solid #808080;
+}
+
+
+#footer-container{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#footer
+{
+    margin:0 auto;
+    height:100px;
+    background-color:#EEEEEE;
+    text-align:right;
+}
+
+#cmp_TopNav
+{
+    margin-top:8px;
+    font-size:12px;
+    text-decoration:none;
+    color:#0072C6;
+}
+#cmp_TopNav ul
+{
+    float:right;
+}
+#cmp_TopNav ul li
+{
+    float:left; 
+    text-decoration:none; 
+    list-style:none;
+    margin-right:5px;
+}
+
+#cmp_TopNav li span.dropImage 
+{ /*--Drop down trigger styles--*/
+	cursor:pointer;
+	padding-right:20px;
+	background: url(/Images/arrowDown.png) no-repeat right;
+}
+ul.topnav li span.subhover 
+{
+    background-position: center bottom; 
+    cursor: pointer;
+} /*--Hover effect for trigger--*/
+#cmp_TopNav a
+{
+   text-decoration:none;color:#000;
+}
+#cmp_TopNav li ul.subnav 
+{
+	list-style: none;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	background: #FDFDFD;
+	margin: 0; padding: 0;
+	display: none;
+	float: right;
+	width: 100px;
+	border: 1px solid #ccc;
+	z-index:0;
+	border-radius:4px;
+}
+#cmp_TopNav li ul.subnav li
+{
+	margin: 0; padding: 0;
+	clear: both;
+	width: 100px;
+	height:25px;
+}
+#cmp_TopNav li ul.subnav li a {
+	float: left;
+	width:100%;
+	height:25px;
+	padding-top:3px;
+    color:#0072C6;
+}
+
+
+
+#cmp_userNav
+{
+    color:#808080;
+    font-weight:400;  
+    padding-bottom:5px;
+}
+#cmp_userNav ul
+{
+    margin-top:3px;
+}
+#cmp_userNav ul li
+{
+    font-size:14px;
+    float:left;
+    letter-spacing:0.03em;
+    list-style-position:inside;
+    list-style-type:disc;
+}
+#cmp_userNav ul li:first-child
+{
+    font-size:14px;
+    float:left;
+    letter-spacing:0.03em;
+    list-style-position:inside;
+    list-style-type:none;
+    padding-right:8px;
+    margin-left:-27px;
+
+}

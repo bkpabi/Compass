@@ -1,0 +1,91 @@
+﻿
+.summaryGraph
+{
+    width:55%;
+    height:39px;
+}    
+.summaryBar
+{
+    width:250px;
+    float:left; 
+    height:7px;
+    -moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #FFFFFF;
+	border: 1px solid #ccc;
+	margin-top:3px;
+    margin-left:10px;
+}
+.summaryMessage
+{
+    float:left; 
+    height:35px;
+    color:#555555;
+    font-size: 11px;
+    margin-left: 10px;
+    margin-top:5px;
+    width:250px;
+ }
+.ProgressBar
+{
+     height:7px; background-color:#A8C32F; float:left;
+     width:50%;
+}
+#figure
+{
+    margin-left:130px;
+    color:#0072C6;
+    font-size:15px;
+    font-weight:500;
+}
+
+#leftNav
+{
+    width:230px;
+    background-color:#e1e1e7;
+    height:500px;
+    float:left;
+}
+#leftNav ul
+{
+    margin:auto;
+}
+#leftNav ul li
+{
+    height:30px;
+    border-bottom:1px solid #eeeaea;
+    list-style:none;
+    margin-left:-39px;
+    padding-left:10px;
+    padding-top:10px;
+    color:#808080;
+    font-size:14px;
+}
+#leftNav ul li.active
+{
+    height:35px;
+    background-color:#585f6d;
+    color:#eeeaea;
+    background-position-x:right;
+    background-image:url(/Images/pointer.png);
+    background-position:right center;
+    background-repeat:no-repeat;
+    background-position-x:215px;
+}
+#leftNav ul li.active a
+{
+    text-decoration:none;
+    color:#eeeaea;
+}
+#leftNav ul li a
+{
+    text-decoration:none;
+    color:#808080;
+}
+#rightBody
+{
+    float:left;
+    width:800px;
+    margin-left:10px;
+}

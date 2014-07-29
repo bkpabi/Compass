@@ -360,6 +360,39 @@ namespace Compass.Business.Components
             }
         }
 
+        public IEnumerable<IssueDTO> GetAllIssues()
+        {
+            using (var compassContext = new CompassEntities())
+            {
+                List<IssueDTO> issueCollection = new List<IssueDTO>();
+                var dbIssueCollection = (from issue in compassContext.CMP_IssueDetails
+                                         join cate in compassContext.CMP_CategoryMaster on issue.CategoryId equals cate.Id
+                                         join stat in compassContext.CMP_IssueStatusMaster on issue.StatusId equals stat.Id
+                                         join tent in compassContext.CMP_TenantMaster on issue.TenantId equals tent.Id
+                                         select new { issue, cate, stat, tent }).ToList();
+                foreach (var item in dbIssueCollection)
+                {
+                    IssueDTO theIssue = new IssueDTO();
+                    theIssue.CategoryId = item.issue.CategoryId;
+                    theIssue.CategoryName = item.cate.CategoryName;
+                    theIssue.CreatedBy = item.issue.CreatedBy;
+                    theIssue.CreatedOn = item.issue.CreatedOn;
+                    theIssue.ExternalId = item.issue.ExternalId;
+                    theIssue.Id = item.issue.Id;
+                    theIssue.IssueType = item.issue.IssueType;
+                    theIssue.ModifiedBy = item.issue.ModifiedBy;
+                    theIssue.ModifiedOn = item.issue.ModifiedOn;
+                    theIssue.StatusId = item.issue.StatusId;
+                    theIssue.Status = item.stat.IssueStatus;
+                    theIssue.Summary = item.issue.Summary;
+                    theIssue.TenantId = item.issue.TenantId;
+                    theIssue.TenantName = item.tent.TenantName;
+                    issueCollection.Add(theIssue);
+                }
+                return issueCollection;
+            }   
+        }
+
         public IEnumerable<IssueDTO> GetAllIssueByCategory(int categoryType)
         { throw new NotImplementedException(); }
         public IEnumerable<IssueDTO> GetAllIssueByDate(DateTime date)

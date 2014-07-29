@@ -5,22 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a77309f8046f4c97ad46ead1c843f9e8" Name="Diagram1">
-        <EntityTypeShape EntityType="CompassModel.CMP_ActivityMaster" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompassModel.CMP_CategoryMaster" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompassModel.CMP_IssueActivityDetails" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompassModel.CMP_IssueAssignmentDetails" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompassModel.CMP_IssueDetails" Width="1.5" PointX="6" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompassModel.CMP_IssueStatusMaster" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompassModel.CMP_RoleMaster" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompassModel.CMP_UserDetails" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <AssociationConnector Association="CompassModel.FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails" ManuallyRouted="false" />
-        <AssociationConnector Association="CompassModel.FK_CMP_IssueDetails_CMP_CategoryMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="CompassModel.FK_CMP_IssueActivityDetails_CMP_UserDetails" ManuallyRouted="false" />
-        <AssociationConnector Association="CompassModel.FK_CMP_IssueAssignmentDetails_CMP_IssueDetails" ManuallyRouted="false" />
-        <AssociationConnector Association="CompassModel.FK_CMP_IssueAssignmentDetails_CMP_UserDetails" ManuallyRouted="false" />
-        <AssociationConnector Association="CompassModel.FK_CMP_IssueAssignmentDetails_CMP_UserDetails1" ManuallyRouted="false" />
-        <AssociationConnector Association="CompassModel.FK_CMP_IssueDetails_CMP_IssueStatusMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="CompassModel.FK_CMP_UserDetails_CMP_RoleMaster" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CompassModel.CMP_ActivityMaster" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="CompassModel.CMP_CategoryMaster" Width="1.5" PointX="3" PointY="17.875" />
+        <EntityTypeShape EntityType="CompassModel.CMP_IssueActivityDetails" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="CompassModel.CMP_IssueAssignmentDetails" Width="1.5" PointX="7.5" PointY="7.75" />
+        <EntityTypeShape EntityType="CompassModel.CMP_IssueDetails" Width="1.5" PointX="5.25" PointY="10.625" />
+        <EntityTypeShape EntityType="CompassModel.CMP_IssueStatusMaster" Width="1.5" PointX="3" PointY="14.75" />
+        <EntityTypeShape EntityType="CompassModel.CMP_ProjectMaster" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="CompassModel.CMP_RoleMaster" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="CompassModel.CMP_TenantMaster" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="CompassModel.CMP_UserDetails" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="CompassModel.sysdiagram" Width="1.5" PointX="5.75" PointY="1.625" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueActivityDetails_CMP_IssueActivityDetails" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueDetails_CMP_CategoryMaster" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueActivityDetails_CMP_UserDetails" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueAssignmentDetails_CMP_IssueDetails" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueAssignmentDetails_CMP_UserDetails" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueAssignmentDetails_CMP_UserDetails1" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueDetails_CMP_IssueDetails" />
+        <AssociationConnector Association="CompassModel.FK_CMP_IssueDetails_CMP_IssueStatusMaster" />
+        <AssociationConnector Association="CompassModel.FK_CMP_TenantMaster_CMP_ProjectMaster" />
+        <AssociationConnector Association="CompassModel.FK_CMP_UserDetails_CMP_ProjectMaster" />
+        <AssociationConnector Association="CompassModel.FK_CMP_UserDetails_CMP_UserDetails" />
+        <AssociationConnector Association="CompassModel.FK_CMP_UserDetails_CMP_RoleMaster" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

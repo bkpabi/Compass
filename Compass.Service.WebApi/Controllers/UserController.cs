@@ -62,7 +62,8 @@
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
             }
         }
-        
+
+        [Route("api/{controller}/{action}/{email}/{password}")]
         [HttpGet]
         public HttpResponseMessage AuthenticateUser(string email, string password)
         {

@@ -25,6 +25,7 @@ namespace Compass.DataModel
         public string Summary { get; set; }
         public int CategoryId { get; set; }
         public int StatusId { get; set; }
+        public int TenantId { get; set; }
         public string CreatedBy { get; set; }
         public System.DateTime CreatedOn { get; set; }
         public string ModifiedBy { get; set; }
@@ -32,6 +33,7 @@ namespace Compass.DataModel
     
         public virtual CMP_CategoryMaster CMP_CategoryMaster { get; set; }
         public virtual ICollection<CMP_IssueAssignmentDetails> CMP_IssueAssignmentDetails { get; set; }
+        public virtual CMP_TenantMaster CMP_TenantMaster { get; set; }
         public virtual CMP_IssueStatusMaster CMP_IssueStatusMaster { get; set; }
     }
 }

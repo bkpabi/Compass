@@ -24,20 +24,23 @@ namespace Compass.DataModel
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string MobileNumber { get; set; }
         public bool IsActive { get; set; }
         public bool IsLocked { get; set; }
         public int RoleId { get; set; }
+        public int ProjectId { get; set; }
         public string CreatedBy { get; set; }
         public System.DateTime CreatedOn { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
     
         public virtual ICollection<CMP_IssueActivityDetails> CMP_IssueActivityDetails { get; set; }
         public virtual ICollection<CMP_IssueAssignmentDetails> CMP_IssueAssignmentDetails { get; set; }
         public virtual ICollection<CMP_IssueAssignmentDetails> CMP_IssueAssignmentDetails1 { get; set; }
+        public virtual CMP_ProjectMaster CMP_ProjectMaster { get; set; }
+        public virtual CMP_ProjectMaster CMP_ProjectMaster1 { get; set; }
         public virtual CMP_RoleMaster CMP_RoleMaster { get; set; }
     }
 }

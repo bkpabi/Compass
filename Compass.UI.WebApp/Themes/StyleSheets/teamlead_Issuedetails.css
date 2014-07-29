@@ -1,0 +1,199 @@
+﻿#leftNav
+{
+    width:230px;
+    background-color:#e1e1e7;
+    height:500px;
+    float:left;
+}
+#leftNav ul
+{
+    margin:auto;
+}
+#leftNav ul li
+{
+    height:30px;
+    border-bottom:1px solid #eeeaea;
+    list-style:none;
+    margin-left:-39px;
+    padding-left:10px;
+    padding-top:10px;
+    color:#808080;
+    font-size:14px;
+}
+#leftNav ul li.active
+{
+    height:35px;
+    background-color:#585f6d;
+    color:#eeeaea;
+    background-position-x:right;
+    background-image:url(/Images/pointer.png);
+    background-position:right center;
+    background-repeat:no-repeat;
+    background-position-x:215px;
+}
+#leftNav ul li.active a
+{
+    text-decoration:none;
+    color:#eeeaea;
+}
+#leftNav ul li a
+{
+    text-decoration:none;
+    color:#808080;
+}
+#rightBody
+{
+    float:left;
+    width:82%;
+    margin-left:8px;
+}
+#topBar
+{
+    height:0px;
+    width:98%;
+}
+#IssueDetails
+{
+    width:98%;
+}
+#IssueDetails .issueTableContainer
+{
+    width:70%;
+    float:left;
+}
+#actions
+{
+    float:right;
+    width:400px;
+}
+#actions ul
+{
+    float:right;
+}
+#actions ul li
+{
+    float:left;
+    margin-right:8px;
+    color:#808080;
+    cursor:pointer;
+}
+#actions ul li img
+{
+
+}
+#activity
+{
+    width:25%;
+    height:300px;
+    float:right;
+}
+#activity ul
+{
+    font-size:14px;
+    border-left:1px solid #808080;
+}
+#activity ul li
+{
+    border-bottom:1px solid #e1e1e7;
+    color:#808080;
+    list-style:none;
+    margin-left:-30px;
+    height:40px;
+    margin-top:5px;
+}
+
+/*===================Modal Windows===============================*/
+#cmp_AddIssue_ModalWindow, #cmp_EditIssue_ModalWindow, #cmp_AssignIssue_ModalWindow, #cmp_ReleaseIssueQA_ModalWindow, #cmp_ReOpenIssue_ModalWindow
+{
+    width:553px; 
+    min-height:225px; 
+    height:auto;
+    background-color:#868686;
+    border:1px solid #CCC; 
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+    display:none; 
+    padding:5px;
+}
+#cmp_AddIssue_ModalWindow_InnerContainer, #cmp_EditIssue_ModalWindow_InnerContainer, #cmp_AssignIssue_ModalWindow_InnerContainer, #cmp_ReleaseIssueQA_ModalWindow_InnerContainer, #cmp_ReOpenIssue_ModalWindow_InnerContainer
+{
+    width:550px; 
+    min-height:225px; 
+    height:auto;
+    border:1px solid #555555;
+    background-color:#FFFFFF; 
+    -moz-box-shadow: 0 0 25px #424242;
+	-webkit-box-shadow: 0 0 25px #424242;
+	-o-box-shadow: 0 0 25px #424242;
+	box-shadow: 0 0 25px #424242;
+}
+#cmp_AddIssue_ModalWindow_InnerContainer_ModalHeader, #cmp_EditIssue_ModalWindow_InnerContainer_ModalHeader, #cmp_AssignIssue_ModalWindow_InnerContainer_ModalHeader, #cmp_ReleaseIssueQA_ModalWindow_InnerContainer_ModalHeader, #cmp_ReOpenIssue_ModalWindow_InnerContainer_ModalHeader
+{
+    width:98%; 
+    padding-top:2px; 
+    height:28px; 
+    color:#000;
+    font-size: 16px;
+    border-bottom:1px dotted #B2AFA8;
+}
+#cmp_AddIssue_ModalWindow_InnerContainer_ModalHeader span, #cmp_EditIssue_ModalWindow_InnerContainer_ModalHeader span, #cmp_AssignIssue_ModalWindow_InnerContainer_ModalHeader span, #cmp_ReleaseIssueQA_ModalWindow_InnerContainer_ModalHeader span, #cmp_ReOpenIssue_ModalWindow_InnerContainer_ModalHeader span
+{
+    font-size:17px; 
+    margin-left:10px;
+}
+#cmp_AddIssue_ModalWindow_InnerContainer_DataContainer, #cmp_EditIssue_ModalWindow_InnerContainer_DataContainer, #cmp_AssignIssue_ModalWindow_InnerContainer_DataContainer, #cmp_ReleaseIssueQA_ModalWindow_InnerContainer_DataContainer, #cmp_ReOpenIssue_ModalWindow_InnerContainer_DataContainer
+{
+    width:100%; 
+    min-height:160px; 
+    height:auto;
+    background-color:#FFFFFF;
+}
+#cmp_AddIssue_ModalWindow_InnerContainer_DataContainer table, #cmp_EditIssue_ModalWindow_InnerContainer_DataContainer table, #cmp_AssignIssue_ModalWindow_InnerContainer_DataContainer table, #cmp_ReleaseIssueQA_ModalWindow_InnerContainer_DataContainer table, #cmp_ReOpenIssue_ModalWindow_InnerContainer_DataContainer table
+{
+    margin-top:10px;
+    width:100%;
+}
+#cmp_AddIssue_ModalWindow_InnerContainer_DataContainer table tr.data, #cmp_EditIssue_ModalWindow_InnerContainer_DataContainer table tr.data, #cmp_AssignIssue_ModalWindow_InnerContainer_DataContainer table tr.data, #cmp_ReleaseIssueQA_ModalWindow_InnerContainer_DataContainer table tr.data, #cmp_ReOpenIssue_ModalWindow_InnerContainer_DataContainer table tr.data
+{
+   height:33px;
+}
+#cmp_AddIssue_ModalWindow_InnerContainer_ModalFooter, #cmp_EditIssue_ModalWindow_InnerContainer_ModalFooter, #cmp_AssignIssue_ModalWindow_InnerContainer_ModalFooter, #cmp_ReleaseIssueQA_ModalWindow_InnerContainer_ModalFooter, #cmp_ReOpenIssue_ModalWindow_InnerContainer_ModalFooter
+{
+    width:100%; 
+    height:33px; 
+    border-top:1px solid #C2C2C2;
+    background-color:#F5F5F5;
+    margin-top: 5px;
+}
+#cmp_AddIssue_ajaxProcessing, #cmp_EditIssue_ajaxProcessing, #cmp_AssignIssue_ajaxProcessing, #cmp_ReleaseIssueQA_ajaxProcessing, #cmp_ReOpenIssue_ajaxProcessing
+{
+    display:none; 
+    width:130px;
+    float:left; 
+    margin-left:5px; 
+    margin-top:5px; 
+    font-size:13px; 
+    text-decoration:blink;
+}
+#cmp_AddIssue_ajaxProcessing img, #cmp_EditIssue_ajaxProcessing img, #cmp_AssignIssue_ajaxProcessing img, #cmp_ReleaseIssueQA_ajaxProcessing img, #cmp_ReOpenIssue_ajaxProcessing img
+{
+    float:left;
+}
+
+#simplemodal-container {
+	position:absolute;
+	top:10%;
+}
+#simplemodal-container a.modalCloseImg {
+	background:url(/Images/planix_Close.gif) no-repeat; /* adjust url as required */
+	width:16px;
+	height:16px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:10px;
+	right:11px;
+	cursor:pointer;
+}
+

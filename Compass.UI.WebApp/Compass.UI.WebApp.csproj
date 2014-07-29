@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{161DAF4D-6C58-474B-A092-B1A97ABDC2C0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Compass.UI.WebApp</RootNamespace>
+    <AssemblyName>Compass.UI.WebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Accounts\Logout.aspx" />
+    <Content Include="Admin\Overview.aspx" />
+    <Content Include="Images\arrowDown.png" />
+    <Content Include="Images\arrowDropdown.png" />
+    <Content Include="Images\compass.png" />
+    <Content Include="Images\cry.png" />
+    <Content Include="Images\dashboard.png" />
+    <Content Include="Images\empty_box-26.png" />
+    <Content Include="Images\full_trash-26.png" />
+    <Content Include="Images\happy.png" />
+    <Content Include="Images\heart_monitor-26.png" />
+    <Content Include="Images\issueSummary.png" />
+    <Content Include="Images\link-26.png" />
+    <Content Include="Images\notification.png" />
+    <Content Include="Images\nui2-32.png" />
+    <Content Include="Images\planix_Close.gif" />
+    <Content Include="Images\plus-26.png" />
+    <Content Include="Images\pointer.png" />
+    <Content Include="Images\release.png" />
+    <Content Include="Images\sad.png" />
+    <Content Include="Images\today-26.png" />
+    <Content Include="Images\worried.png" />
+    <Content Include="packages.config" />
+    <Content Include="MasterPages\Site.Master" />
+    <Content Include="Themes\Scripts\DataTable\images\Sorting icons.psd" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Accounts\Login.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\LoginPageBrand.png" />
+    <Content Include="TeamLead\IssueDetails.aspx" />
+    <Content Include="TeamLead\Overview.aspx" />
+    <Content Include="Themes\CompassSite.css" />
+    <Content Include="Themes\Scripts\DataTable\css\demo_page.css" />
+    <Content Include="Themes\Scripts\DataTable\css\demo_table.css" />
+    <Content Include="Themes\Scripts\DataTable\css\demo_table_jui.css" />
+    <Content Include="Themes\Scripts\DataTable\images\back_disabled.jpg" />
+    <Content Include="Themes\Scripts\DataTable\images\back_enabled.jpg" />
+    <Content Include="Themes\Scripts\DataTable\images\favicon.ico" />
+    <Content Include="Themes\Scripts\DataTable\images\forward_disabled.jpg" />
+    <Content Include="Themes\Scripts\DataTable\images\forward_enabled.jpg" />
+    <Content Include="Themes\Scripts\DataTable\images\planix_Find.png" />
+    <Content Include="Themes\Scripts\DataTable\images\sort_asc.png" />
+    <Content Include="Themes\Scripts\DataTable\images\sort_asc_disabled.png" />
+    <Content Include="Themes\Scripts\DataTable\images\sort_both.png" />
+    <Content Include="Themes\Scripts\DataTable\images\sort_desc.png" />
+    <Content Include="Themes\Scripts\DataTable\images\sort_desc_disabled.png" />
+    <Content Include="Themes\Scripts\DataTable\js\Jquery.dataTable.RowGrouping.js" />
+    <Content Include="Themes\Scripts\DataTable\js\jquery.dataTables.js" />
+    <Content Include="Themes\Scripts\DataTable\js\jquery.dataTables.min.js" />
+    <Content Include="Themes\Scripts\DataTable\js\jquery.dataTables.Plugin.js" />
+    <Content Include="Themes\Scripts\DataTable\js\jquery.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\adapters\mootools-adapter.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\adapters\mootools-adapter.src.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\adapters\prototype-adapter.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\adapters\prototype-adapter.src.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\highcharts.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\highcharts.src.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\modules\exporting.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\modules\exporting.src.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\themes\dark-blue.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\themes\dark-green.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\themes\gray.js" />
+    <Content Include="Themes\Scripts\HighChartScripts\js\themes\grid.js" />
+    <Content Include="Themes\Scripts\Jquery.js" />
+    <Content Include="Themes\Scripts\jquery.simplemodal.1.4.1.min.js" />
+    <Content Include="Themes\Scripts\masterScript.js" />
+    <Content Include="Themes\Scripts\TeamLead_IssueDetails.js" />
+    <Content Include="Themes\Scripts\TeamLead_Overview.js" />
+    <Content Include="Themes\StyleSheets\teamlead_Issuedetails.css" />
+    <Content Include="Themes\teamLead_Overview.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accounts\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Accounts\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Overview.aspx.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Overview.aspx.designer.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamLead\IssueDetails.aspx.cs">
+      <DependentUpon>IssueDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamLead\IssueDetails.aspx.designer.cs">
+      <DependentUpon>IssueDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeamLead\Overview.aspx.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeamLead\Overview.aspx.designer.cs">
+      <DependentUpon>Overview.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Compass.Business.Entities\Compass.Business.Entities.csproj">
+      <Project>{3ebb50f7-08ff-411d-a52b-bc81dab114b0}</Project>
+      <Name>Compass.Business.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>39363</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:19490/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

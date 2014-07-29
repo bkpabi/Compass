@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Compass.UI.WebApp.MasterPages.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </title>
+    <link href="../Themes/CompassSite.css" rel="stylesheet" />
+    <script src="../Themes/Scripts/Jquery.js"></script>
+    <script src="../Themes/Scripts/masterScript.js"></script>
+    <script src="../Themes/Scripts/HighChartScripts/js/highcharts.js"></script>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+        <div id="cmp_Header" style="height:60px;  border-bottom:1px solid #DDDDDD;">
+            <div style="float:left;">
+                <div id="cmp_AppLogo" style="margin-left:10px; margin-top:-5px; float:left;">
+                    <img src="../Images/compass.png" style="float:left;" />
+                <span style="color:#0072C6; font-size:x-large; margin-left:3px; font-weight:400;">Compass</span>&nbsp;
+                <span style="font-size:smaller;color:#1e9d14;">1.0</span>
+            </div>
+                <div id="cmp_userNav">
+                    <span style="margin-left:12px; padding-top:10px;">ROD Config</span>
+                </div>
+            </div>
+            <div style="float:right;">
+            <div id="cmp_poweredBy" style="float:right; margin-right:10px;"><span style="color:#808080; font-size:15px; font-weight:500;">Powered By POSITIVEEDGE</span></div>
+            <div id="cmp_TopNav">
+                <ul>
+                    <li><img src="../Images/notification.png" />&nbsp;&nbsp;&nbsp;</li>
+                    <li><span id="welcomeUser">Hello, Pabitra Ray</span> 
+                        <ul class="subnav">
+                            <li><a href="#" id="settings">&nbsp;&nbsp;&nbsp;Settings</a></li>
+                            <li><a href="/Accounts/Logout.aspx">&nbsp;&nbsp;&nbsp;Logout</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+            </div>
+        </div>
+        
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderBody" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </div>
+    
+    </form>
+</body>
+</html>

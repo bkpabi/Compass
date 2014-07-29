@@ -146,6 +146,7 @@
                 }
                 else
                 {
+                    userDTO = new UserDetailDTO();
                     userDTO.RoleId = dbUser.user.RoleId;
                     userDTO.Password = dbUser.user.Password;
                     userDTO.ModifiedOn = dbUser.user.ModifiedOn;

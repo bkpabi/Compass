@@ -9,8 +9,14 @@ namespace CompassUnitTests
         [TestMethod]
         public void CreateUserTest()
         {
+            //Compass.Business.Components.UserManager userManagerTestManager = new Compass.Business.Components.UserManager();
+            //Assert.AreEqual(1,userManagerTestManager.CreateNewUser(new Compass.Business.Entities.UserDetailDTO()));
+        }
+        [TestMethod]
+        public void GetAllActiveUser()
+        {
             Compass.Business.Components.UserManager userManagerTestManager = new Compass.Business.Components.UserManager();
-            Assert.AreEqual(1,userManagerTestManager.CreateNewUser(new Compass.Business.Entities.UserDetailDTO()));
+            Assert.AreEqual(1, userManagerTestManager.GetAllActiveUser().Count);
         }
     }
 }
