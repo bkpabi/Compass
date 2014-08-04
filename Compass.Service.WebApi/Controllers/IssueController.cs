@@ -9,6 +9,9 @@ namespace Compass.Service.WebApi.Controllers
 {
     using Compass.Business.Entities;
     using Compass.Business.Components;
+    using System.Web.Cors;
+    using System.Web.Http.Cors;
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class IssueController : ApiController
     {
         #region-- Activity Type
@@ -94,7 +97,8 @@ namespace Compass.Service.WebApi.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest,message);
             }
         }
-        
+
+        [Route("api/Issue/GetAllIssueCategoryType")]
         [HttpGet]
         public IEnumerable<CategoryMaster> GetAllIssueCategoryType()
         {
@@ -147,10 +151,15 @@ namespace Compass.Service.WebApi.Controllers
         #endregion
 
         #region-- Issue
+        [Route("api/Issue/AddNewIssue")]
         [HttpPost]
         public int AddNewIssue(IssueDTO newIssueDetails)
         {
             IssueManager manager = new IssueManager();
+            newIssueDetails.CategoryId = 1; // By default the issue will be of type Need to work
+            newIssueDetails.StatusId = 1;
+            newIssueDetails.CreatedOn = DateTime.Now;
+            //return 1;
             return manager.AddNewIssue(newIssueDetails);
         }
         [HttpPut]
@@ -181,6 +190,20 @@ namespace Compass.Service.WebApi.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, message);
             }
+        }
+        [Route("api/Issue/GetAllIssuesByProject/{projectName}")]
+        [HttpGet]
+        public IEnumerable<IssueDTO> GetAllIssuesByProject(string projectName)
+        {
+            IssueManager manager = new IssueManager();
+            return manager.GetAllIssuesByProject(projectName);
+        }
+        [Route("api/Issue/GetIssueDetailsById/{issueId}")]
+        [HttpGet]
+        public IssueDTO GetIssueDetailsById(int issueId)
+        {
+            IssueManager manager = new IssueManager();
+            return manager.GetIssueDetailsById(issueId);
         }
         [HttpGet]
         public IEnumerable<IssueDTO> GetAllIssueByCategory(int categoryType)
@@ -282,6 +305,16 @@ namespace Compass.Service.WebApi.Controllers
         {
             IssueManager manager = new IssueManager();
             return manager.GetAllActivityByUser(userId);
+        }
+        #endregion
+
+        #region--Tenent
+        [Route("api/Issue/GetTenantByProject/{ProjectName}")]
+        [HttpGet]
+        public IEnumerable<TenantMasterDTO> GetTenantByProject(string ProjectName)
+        {
+            IssueManager manager = new IssueManager();
+            return manager.GetTenantsByProject(ProjectName).ToList();
         }
         #endregion
     }

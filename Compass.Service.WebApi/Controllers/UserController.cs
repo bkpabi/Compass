@@ -6,6 +6,8 @@
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
+    using System.Web.Http.Cors;
+    [EnableCors("*", "*", "*")]
     public class UserController : ApiController
     {
         [HttpPost]
@@ -63,7 +65,7 @@
             }
         }
 
-        [Route("api/{controller}/{action}/{email}/{password}")]
+        [Route("api/User/AuthenticateUser/{email}/{password}")]
         [HttpGet]
         public HttpResponseMessage AuthenticateUser(string email, string password)
         {
