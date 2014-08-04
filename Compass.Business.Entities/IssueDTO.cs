@@ -20,7 +20,10 @@
         public string CategoryName { get; set; }
         [DataMember]
         public string Status { get; set; }
+        [DataMember]
         public int StatusId { get; set; }
+        [DataMember]
+        public string Priority { get; set; }
         [DataMember]
         public string CreatedBy { get; set; }
         [DataMember]
