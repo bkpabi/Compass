@@ -298,9 +298,11 @@ namespace Compass.Business.Components
                 dbIssue.CreatedBy = newIssueDetails.CreatedBy;
                 dbIssue.CreatedOn = newIssueDetails.CreatedOn;
                 dbIssue.ExternalId = newIssueDetails.ExternalId;
+                dbIssue.Priority = newIssueDetails.Priority;
                 dbIssue.IssueType = newIssueDetails.IssueType;
-                dbIssue.StatusId = dbIssue.StatusId;
-                dbIssue.Summary = dbIssue.Summary;
+                dbIssue.StatusId = newIssueDetails.StatusId;
+                dbIssue.Summary = newIssueDetails.Summary;
+                dbIssue.TenantId = newIssueDetails.TenantId;
                 compassContext.CMP_IssueDetails.Add(dbIssue);
                 compassContext.SaveChanges();
                 return dbIssue.Id;
@@ -360,7 +362,7 @@ namespace Compass.Business.Components
             }
         }
 
-        public IEnumerable<IssueDTO> GetAllIssues()
+        public IEnumerable<IssueDTO> GetAllIssuesByProject(string projectName)
         {
             using (var compassContext = new CompassEntities())
             {
@@ -369,6 +371,8 @@ namespace Compass.Business.Components
                                          join cate in compassContext.CMP_CategoryMaster on issue.CategoryId equals cate.Id
                                          join stat in compassContext.CMP_IssueStatusMaster on issue.StatusId equals stat.Id
                                          join tent in compassContext.CMP_TenantMaster on issue.TenantId equals tent.Id
+                                         join proj in compassContext.CMP_ProjectMaster on tent.ProjectId equals proj.Id
+                                         where proj.ProjectName == projectName
                                          select new { issue, cate, stat, tent }).ToList();
                 foreach (var item in dbIssueCollection)
                 {
@@ -391,6 +395,42 @@ namespace Compass.Business.Components
                 }
                 return issueCollection;
             }   
+        }
+
+        public IssueDTO GetIssueDetailsById(int issueId)
+        {
+            using (var compassContext = new CompassEntities())
+            {
+                IssueDTO theIssue = new IssueDTO();
+                 var dbIssue = (from issue in compassContext.CMP_IssueDetails
+                                         join cate in compassContext.CMP_CategoryMaster on issue.CategoryId equals cate.Id
+                                         join stat in compassContext.CMP_IssueStatusMaster on issue.StatusId equals stat.Id
+                                         join tent in compassContext.CMP_TenantMaster on issue.TenantId equals tent.Id
+                                         join proj in compassContext.CMP_ProjectMaster on tent.ProjectId equals proj.Id
+                                          where issue.Id == issueId
+                                         select new { issue, cate, stat, tent }).FirstOrDefault();
+                 if (dbIssue != null)
+                 {
+                     theIssue.CategoryId = dbIssue.issue.CategoryId;
+                     theIssue.CategoryName = dbIssue.cate.CategoryName;
+                     theIssue.CreatedBy = dbIssue.issue.CreatedBy;
+                     theIssue.CreatedOn = dbIssue.issue.CreatedOn;
+                     theIssue.ExternalId = dbIssue.issue.ExternalId;
+                     theIssue.Id = dbIssue.issue.Id;
+                     theIssue.IssueType = dbIssue.issue.IssueType;
+                     theIssue.ModifiedBy = dbIssue.issue.ModifiedBy;
+                     theIssue.ModifiedOn = dbIssue.issue.ModifiedOn;
+                     theIssue.StatusId = dbIssue.issue.StatusId;
+                     theIssue.Status = dbIssue.stat.IssueStatus;
+                     theIssue.Summary = dbIssue.issue.Summary;
+                     theIssue.TenantId = dbIssue.issue.TenantId;
+                     theIssue.TenantName = dbIssue.tent.TenantName;
+                     theIssue.Priority = dbIssue.issue.Priority;
+                 }
+
+                 return theIssue;
+                 
+            }
         }
 
         public IEnumerable<IssueDTO> GetAllIssueByCategory(int categoryType)
@@ -580,6 +620,34 @@ namespace Compass.Business.Components
                     activityCollection.Add(activity);
                 }
                 return activityCollection;
+            }
+        }
+        #endregion
+
+        #region--Tenant
+        public IEnumerable<TenantMasterDTO> GetTenantsByProject(string ProjectName)
+        {
+            using (var compassContext = new CompassEntities())
+            {
+                List<TenantMasterDTO> tenantCollection = new List<TenantMasterDTO>();
+                var dbTenents = (from tent in compassContext.CMP_TenantMaster
+                                 join proj in compassContext.CMP_ProjectMaster on tent.ProjectId equals proj.Id
+                                 where proj.ProjectName == ProjectName
+                                 select new { tent.Id, tent.TenantName, tent.ProjectId, proj.ProjectName, tent.CreatedBy, tent.CreatedOn, tent.ModifiedBy, tent.ModifiedOn }).ToList();
+                foreach (var item in dbTenents)
+                {
+                    TenantMasterDTO theTenant = new TenantMasterDTO();
+                    theTenant.CreatedBy = item.CreatedBy;
+                    theTenant.CreatedOn = item.CreatedOn;
+                    theTenant.Id = item.Id;
+                    theTenant.ModifiedBy = item.ModifiedBy;
+                    theTenant.ModifiedOn = item.ModifiedOn;
+                    theTenant.ProjectId = item.ProjectId;
+                    theTenant.ProjectName = item.ProjectName;
+                    theTenant.TenantName = item.TenantName;
+                    tenantCollection.Add(theTenant);
+                }
+                return tenantCollection;
             }
         }
         #endregion
