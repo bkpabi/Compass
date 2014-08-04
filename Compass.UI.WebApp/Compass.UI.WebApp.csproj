@@ -76,11 +76,15 @@
     <Content Include="Admin\Overview.aspx" />
     <Content Include="Images\arrowDown.png" />
     <Content Include="Images\arrowDropdown.png" />
+    <Content Include="Images\checkmark-26.png" />
     <Content Include="Images\compass.png" />
     <Content Include="Images\cry.png" />
     <Content Include="Images\dashboard.png" />
+    <Content Include="Images\dataValidation_Error.png" />
+    <Content Include="Images\edit-26.png" />
     <Content Include="Images\empty_box-26.png" />
     <Content Include="Images\full_trash-26.png" />
+    <Content Include="Images\guest-128.png" />
     <Content Include="Images\happy.png" />
     <Content Include="Images\heart_monitor-26.png" />
     <Content Include="Images\issueSummary.png" />
@@ -130,6 +134,7 @@
     <Content Include="Themes\Scripts\DataTable\js\jquery.dataTables.min.js" />
     <Content Include="Themes\Scripts\DataTable\js\jquery.dataTables.Plugin.js" />
     <Content Include="Themes\Scripts\DataTable\js\jquery.js" />
+    <Content Include="Themes\Scripts\dataValidation.js" />
     <Content Include="Themes\Scripts\HighChartScripts\js\adapters\mootools-adapter.js" />
     <Content Include="Themes\Scripts\HighChartScripts\js\adapters\mootools-adapter.src.js" />
     <Content Include="Themes\Scripts\HighChartScripts\js\adapters\prototype-adapter.js" />
@@ -224,7 +229,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>39363</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:19490/</IISUrl>
+          <IISUrl>http://localhost:18569</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

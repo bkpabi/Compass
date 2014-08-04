@@ -24,3 +24,4 @@
         this.oApi._fnReDraw(oSettings);
     }
 }
+

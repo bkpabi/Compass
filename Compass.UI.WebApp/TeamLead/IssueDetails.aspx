@@ -8,6 +8,8 @@
     <script src="../Themes/Scripts/TeamLead_IssueDetails.js"></script>
     <link href="../Themes/Scripts/DataTable/css/demo_table_jui.css" rel="stylesheet" />
     <script src="../Themes/Scripts/jquery.simplemodal.1.4.1.min.js"></script>
+    <script src="../Themes/Scripts/dataValidation.js"></script>
+    <script src="../Themes/Scripts/DataTable/js/jquery.dataTables.Plugin.js"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div id="leftNav">
@@ -56,7 +58,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <%--<tr>
+                        <td><input type="checkbox" /> </td>
+                        <td><a href="Overview.aspx">SFDC001</a></td>
+                        <td>Add Offer functioanlity not working</td>
+                        <td>Blackboard</td>
+                        <td>Need to work</td>
+                        <td>Open</td>
+                        <td><img src="../Images/edit-26.png" style="width:18px; height:18px;" /> </td>
+                    </tr>--%>
+                    <%--<tr>
                         <td><input type="checkbox" /> </td>
                         <td><a href="Overview.aspx">SFDC001</a></td>
                         <td>Add Offer functioanlity not working</td>
@@ -109,7 +120,7 @@
                         <td>Need to work</td>
                         <td>Open</td>
                         <td><img src="../Images/edit-26.png" style="width:18px; height:18px;" /> </td>
-                    </tr>
+                    </tr>--%>
                 </tbody>
             </table>
                 </div>
@@ -131,7 +142,7 @@
             <table border="0">
                 <tr class="data">
                     <td style="width:150px;"><span id="cmp_AddIssue_Lable_Tenant" class="cmp_lable">&nbsp;&nbsp;&nbsp;Tenant:</span><span style="color:Red;">&nbsp;*</span></td>
-                    <td><select id="cmp_AddIssue_Select_Tenant" class="planix_selectMedium"><option value="1">Aspect</option></select></td>
+                    <td><select id="cmp_AddIssue_Select_Tenant" class="cmp_selectMedium"></select></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -139,7 +150,7 @@
                 </tr>
                 <tr class="data">
                     <td style="width:150px;"><span id="cmp_AddIssue_Lable_Ticket" class="cmp_lable">&nbsp;&nbsp;&nbsp;Ticket #:</span><span style="color:Red;">&nbsp;*</span></td>
-                    <td><input id="cmp_AddIssue_txtbox_Ticket" class="planix_textBoxMedium" type="text"/></td>
+                    <td><input id="cmp_AddIssue_txtbox_Ticket" class="cmp_textBoxMedium" type="text"/></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -147,23 +158,23 @@
                 </tr>
                 <tr class="data">
                     <td style="width:150px;"><span id="cmp_AddIssue_Lable_Type" class="cmp_lable">&nbsp;&nbsp;&nbsp;Issue Type:</span><span style="color:Red;">&nbsp;*</span></td>
-                    <td> <select id="cmp_AddIssue_Select_IssueType" class="planix_selectMedium"><option value="1">SFDC</option><option value="2">Rally</option><option value="3">Manual</option></select></td>
+                    <td> <select id="cmp_AddIssue_Select_IssueType" class="cmp_selectMedium"><option value="-1">Select</option><option value="1">SFDC</option><option value="2">Rally</option><option value="3">Manual</option></select></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><span id="cmp_Validate_AddIssue_IssueType"></span> </td>
                 </tr>
-                <tr class="data">
+                <%--<tr class="data">
                     <td style="width:150px;"><span id="cmp_AddIssue_Lable_Category" class="cmp_lable">&nbsp;&nbsp;&nbsp;Issue Category:</span><span style="color:Red;">&nbsp;*</span></td>
                     <td> <select id="cmp_AddIssue_Select_IssueCategory" class="planix_selectMedium"><option value="1">Need to work</option><option value="2">Product Engineering</option><option value="3">Need More Details</option></select></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><span id="cmp_Validate_AddIssue_IssueCategoty"></span></td>
-                </tr>
+                </tr>--%>
                 <tr class="data">
                     <td style="width:150px;"><span id="cmp_AddIssue_Lable_Priority" class="cmp_lable">&nbsp;&nbsp;&nbsp;Priority:</span><span style="color:Red;">&nbsp;*</span></td>
-                    <td> <select id="cmp_AddIssue_Select_IssuePriority" class="planix_selectMedium"><option value="1">Highest</option><option value="2">Medium</option><option value="3">Low</option></select></td>
+                    <td> <select id="cmp_AddIssue_Select_IssuePriority" class="cmp_selectMedium"><option value="-1">Select</option><option value="1">Highest</option><option value="2">Medium</option><option value="3">Low</option></select></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -171,7 +182,7 @@
                 </tr>
                 <tr class="data">
                     <td style="width:150px;"><span id="cmp_AddIssue_Lable_Summary" class="cmp_lable">&nbsp;&nbsp;&nbsp;Issue summary:</span><span style="color:Red;">&nbsp;*</span></td>
-                    <td> <%--<input id="planix_AddIncome_Txtbox_Note" class="planix_textBoxMedium" type="text" />--%><textarea id="cmp_AddIssue_txtarea_IssueSummary" rows="2" cols="20"></textarea></td>
+                    <td><textarea id="cmp_AddIssue_txtarea_IssueSummary" rows="2" cols="20" class="cmp_textAreaMedium"></textarea></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -182,11 +193,11 @@
         <div id="cmp_AddIssue_ModalWindow_InnerContainer_ModalFooter">
             <div id="cmp_AddIssue_ajaxProcessing"><img alt="ajaxloader" src="/Images/3.gif"/>&nbsp;&nbsp; Please wait...</div>
             <div style="float:right;margin-top:5px; margin-right:4px;">
-            <div style="display:none;float:left;" id="planix_AddIncome_dataValidation_Error">
+            <div style="display:none;float:left;" id="cmp_AddIssue_dataValidation_Error">
             <img alt="" id="cmp_AddIssue_ErrorImage" src="../Images/cry.png" style="float:left" />
             <span id="cmp_AddIssue_ErrorMessage" style="float:left; color:#333333;line-height:13px;margin-top:3px; margin-right:7px;"></span>
             </div>
-                <button type="button" id="cmp_btn_Income_Save" class="planix_button_Save">Save</button>
+                <button type="button" id="cmp_btn_AddIssue_Save" class="planix_button_Save">Save</button>
             </div>
         </div>
     </div>
@@ -291,7 +302,7 @@
 <div id="cmp_EditIssue_ModalWindow">
     <div id="cmp_EditIssue_ModalWindow_InnerContainer" style="">
         <div id="cmp_EditIssue_ModalWindow_InnerContainer_ModalHeader">
-            <span>Log an Issue</span><span style="float:right; color:#AD382D; margin-right:35px; font-size:12px; padding-top:5px;">*mandatory</span>
+            <span>Update issue Details</span><span style="float:right; color:#AD382D; margin-right:35px; font-size:12px; padding-top:5px;">*mandatory</span>
         </div>
         <div id="cmp_EditIssue_ModalWindow_InnerContainer_DataContainer"> 
             <table border="0">
@@ -321,7 +332,7 @@
                 </tr>
                 <tr class="data">
                     <td style="width:150px;"><span id="cmp_EditIssue_Lable_Category" class="cmp_lable">&nbsp;&nbsp;&nbsp;Issue Category:</span><span style="color:Red;">&nbsp;*</span></td>
-                    <td> <select id="cmp_EditIssue_Select_IssueCategory" class="planix_selectMedium"><option value="1">Need to work</option><option value="2">Product Engineering</option><option value="3">Need More Details</option></select></td>
+                    <td> <select id="cmp_EditIssue_Select_IssueCategory" class="planix_selectMedium"></select></td>
                 </tr>
                 <tr>
                     <td></td>
