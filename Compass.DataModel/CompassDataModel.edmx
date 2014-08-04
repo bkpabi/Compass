@@ -67,6 +67,7 @@
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="TenantId" Type="int" Nullable="false" />
+          <Property Name="Priority" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreatedOn" Type="datetime" Nullable="false" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
@@ -493,6 +494,7 @@
           <NavigationProperty Name="CMP_IssueAssignmentDetails" Relationship="CompassModel.FK_CMP_IssueAssignmentDetails_CMP_IssueDetails" FromRole="CMP_IssueDetails" ToRole="CMP_IssueAssignmentDetails" />
           <NavigationProperty Name="CMP_TenantMaster" Relationship="CompassModel.FK_CMP_IssueDetails_CMP_IssueDetails" FromRole="CMP_IssueDetails" ToRole="CMP_TenantMaster" />
           <NavigationProperty Name="CMP_IssueStatusMaster" Relationship="CompassModel.FK_CMP_IssueDetails_CMP_IssueStatusMaster" FromRole="CMP_IssueDetails" ToRole="CMP_IssueStatusMaster" />
+          <Property Name="Priority" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CMP_IssueStatusMaster">
           <Key>
@@ -789,6 +791,7 @@
           <EntitySetMapping Name="CMP_IssueDetails">
             <EntityTypeMapping TypeName="CompassModel.CMP_IssueDetails">
               <MappingFragment StoreEntitySet="CMP_IssueDetails">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />

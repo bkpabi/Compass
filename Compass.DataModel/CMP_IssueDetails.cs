@@ -30,6 +30,7 @@ namespace Compass.DataModel
         public System.DateTime CreatedOn { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
+        public string Priority { get; set; }
     
         public virtual CMP_CategoryMaster CMP_CategoryMaster { get; set; }
         public virtual ICollection<CMP_IssueAssignmentDetails> CMP_IssueAssignmentDetails { get; set; }
